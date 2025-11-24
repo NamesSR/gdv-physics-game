@@ -8,3 +8,8 @@
 * je kan ook in je kamer kijken je hoort voetstappen en hoelanger je het spel speelt hoe donkerder je kamer word 
 * als je niet de score haalt in een bepaalde tijd gaat je scherm zwaart en word je schreewent waker en vraag je je af wat er gebeurt is
 * als je als je het laatse level wint dan gaat het scherm zwaart en word je wakker zweetent en vraag je je af of het een droom was of niet
+
+# 2.1
+## ![gif](image/game.gif)
+### [ball code](Assets/shootball.cs)
+### [code](Assets/colliding.cs)
