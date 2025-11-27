@@ -2,7 +2,7 @@
 ## gamble
 ## ![image](image/WhatsApp%20Image%202025-11-17%20at%2011.00.03_626b8bff.jpg)
 
-* idee storty
+* idee story
 * psychological horror
 * je zit de gamble speel te spelen iemand of iets zit achter je aan je hebt iets gedaan waar je zelf niet voor vergeeft
 * je kan ook in je kamer kijken je hoort voetstappen en hoelanger je het spel speelt hoe donkerder je kamer word 
@@ -13,8 +13,3 @@
 ## ![gif](image/game.gif)
 ### [ball code](Assets/shootball.cs)
 ### [code](Assets/colliding.cs)
-
-# 2.2
-## ![gif](image/shooting%20balls.gif)
-### [shoot code](Assets/shootball.cs)
-### [rotation code](Assets/aim.cs)
