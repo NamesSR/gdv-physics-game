@@ -18,3 +18,12 @@
 ## ![gif](image/shooting%20balls.gif)
 ### [shoot code](Assets/shootball.cs)
 ### [rotation code](Assets/aim.cs)
+
+# 3.1
+## ![gif](image/shooting%20balls.gif)
+### [shoot code](Assets/shootball.cs)
+### [rotation code](Assets/aim.cs)
+### [scoremager](Assets/scoreManager.cs)
+### [colliding](Assets/colliding.cs)
+### [text](Assets/TestText.cs)
+### [scoretext](Assets/scoretext.cs)
