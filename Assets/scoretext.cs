@@ -11,7 +11,7 @@ public class scoretext : MonoBehaviour
     void Start()
     {
         scoreText = GetComponent<TextMeshProUGUI>();
-        scoreText.text = scoreManager.Instance.score.ToString();
+       
     }
 
     // Update is called once per frame

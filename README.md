@@ -27,3 +27,13 @@
 ### [colliding](Assets/colliding.cs)
 ### [text](Assets/TestText.cs)
 ### [scoretext](Assets/scoretext.cs)
+
+# 3.2
+## ![gif](image/3.2asd.gif)
+### [shoot code](Assets/shootball.cs)
+### [rotation code](Assets/aim.cs)
+### [scoremager](Assets/scoreManager.cs)
+### [colliding](Assets/colliding.cs)
+### [text](Assets/TestText.cs)
+### [scoretext](Assets/scoretext.cs)
+### [scoremager](Assets/comboSytem.cs)
