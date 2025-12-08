@@ -17,7 +17,7 @@ public class TestText : MonoBehaviour
     
     public int c = 0;
 
-    string t = "We have not spoken in aq while";
+    string t = "We have not spoken in a while";
     string[] txt324 = new string[] {"How have you been sins ...then", ""
         };
     void Start()

@@ -16,7 +16,7 @@ public class colliding : MonoBehaviour
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static event Action<string, int> onBumperHit;
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         

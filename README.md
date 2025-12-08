@@ -37,3 +37,14 @@
 ### [text](Assets/TestText.cs)
 ### [scoretext](Assets/scoretext.cs)
 ### [scoremager](Assets/comboSytem.cs)
+
+# 4.1
+## ![gif](image/23456787654567876t.gif)
+### [shoot code](Assets/shootball.cs)
+### [rotation code](Assets/aim.cs)
+### [scoremager](Assets/scoreManager.cs)
+### [colliding](Assets/colliding.cs)
+### [text](Assets/TestText.cs)
+### [scoretext](Assets/scoretext.cs)
+### [scoremager](Assets/comboSytem.cs)
+### [hide](Assets/hide.cs)
