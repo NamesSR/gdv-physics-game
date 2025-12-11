@@ -8,6 +8,7 @@ public class scoreManager : MonoBehaviour
 
     // Totale score
     public int score = 0;
+    public int ballsShot = 0;
 
 
     private void Awake()

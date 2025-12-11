@@ -12,8 +12,9 @@ public class comboSytem : MonoBehaviour
   
     private void Start()
     {
-        Scoretext.text = ($"Score: {scoreManager.Instance.score} ");
+        Scoretext.text = ($"Score: {scoreManager.Instance.score} " + $" Multiplier: {scoreMultiplier}X");
         colliding.onBumperHit += CheckForCombo;
+
     }
 
     private void OnDisable()
@@ -39,14 +40,15 @@ public class comboSytem : MonoBehaviour
         scoreManager.Instance.AddScore(bumpervalue * scoreMultiplier);
         string scoretxt = ($"Score: {scoreManager.Instance.score} ");
         string combotxt = ($" Multiplier: {scoreMultiplier}X");
-        if (scoreMultiplier > 1)
-        {
+        
+        
+        
             Scoretext.text = scoretxt + combotxt;
-        }
-        else
-        {
+        
+        
+        
 
-            Scoretext.text = scoretxt;
-        }
+            
+        
     }
 }
