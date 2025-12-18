@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 public class CountBalls : MonoBehaviour
 {
     public static event Action onBallLost;
@@ -11,12 +12,14 @@ public class CountBalls : MonoBehaviour
     private void Start()
     {
         shootball.onShootBall += CountOnShot;
+        
     }
 
     private void OnDisable()
     {
         //verwijder ook weer alle events
         shootball.onShootBall -= CountOnShot;
+
     }
     private void CountOnShot()
     {

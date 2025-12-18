@@ -7,7 +7,7 @@ public class scoreManager : MonoBehaviour
     public static scoreManager Instance;
 
     // Totale score
-    public int score = 0;
+    public double score = 0;
     public int ballsShot = 0;
 
 
@@ -25,7 +25,7 @@ public class scoreManager : MonoBehaviour
     }
 
     // functie om punten toe te voegen
-    public void AddScore(int amount)
+    public void AddScore(double amount)
     {
         score = score + amount;
         // debug voor testen

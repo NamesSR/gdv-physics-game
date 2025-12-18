@@ -61,3 +61,16 @@
 ### [hide](Assets/hide.cs)
 ### [countball](Assets/CountBalls.cs)
 ### [ballCountUI](Assets/CountBallsUI.cs)
+
+# 5.2
+## ![gif](image/5.2.gif)
+### [shoot code](Assets/shootball.cs)
+### [rotation code](Assets/aim.cs)
+### [scoremager](Assets/scoreManager.cs)
+### [colliding](Assets/colliding.cs)
+### [text](Assets/TestText.cs)
+### [scoretext](Assets/scoretext.cs)
+### [scoremager](Assets/comboSytem.cs)
+### [hide](Assets/hide.cs)
+### [countball](Assets/CountBalls.cs)
+### [ballCountUI](Assets/CountBallsUI.cs)
