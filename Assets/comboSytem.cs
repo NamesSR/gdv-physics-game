@@ -14,12 +14,16 @@ public class comboSytem : MonoBehaviour
    // private List<int> bumpersvalue = new List<int>();
 
     private int scoreMultiplier = 1;
+    
 
     private void Start()
     {
         Scoretext.text = ($"Score: {scoreManager.Instance.score} " + $" Multiplier: {scoreMultiplier}X");
         colliding.onBumperHit += CheckForCombo;
         CountBalls.onBallLost += score;
+        CountBalls.onBallshot += fixscore;
+        CountBalls.onBallDepleted += fixscore;
+
        // CountBalls.onBallLost += addpoints;
 
     }
@@ -28,6 +32,8 @@ public class comboSytem : MonoBehaviour
     {
         colliding.onBumperHit -= CheckForCombo;
         CountBalls.onBallLost -= score;
+        CountBalls.onBallshot -= fixscore;
+        CountBalls.onBallDepleted -= fixscore;
         // CountBalls.onBallLost -= addpoints;
     }
     private void CheckForCombo(string tag, double bumpervalue, double multiplyer)
@@ -50,11 +56,18 @@ public class comboSytem : MonoBehaviour
     }
     private void score() {
         scoreManager.Instance.AddScore(values23 * multipayer2);
-        string scoretxt = ($"Score: {scoreManager.Instance.score} ");
+        string scoretxt = ($"Money: {scoreManager.Instance.score} ");
         string combotxt = ($" Multiplier: {scoreMultiplier}X");
         Scoretext.text = scoretxt + combotxt;
         values23 = 0;
         multipayer2 = 1;
+    }
+    private void fixscore()
+    {
+        
+        string scoretxt = ($"Money: {scoreManager.Instance.score} ");
+        string combotxt = ($" Multiplier: {scoreMultiplier}X");
+        Scoretext.text = scoretxt + combotxt;
     }
     /*  private void addpoints()
       {

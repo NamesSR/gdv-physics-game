@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class shootball : MonoBehaviour
     Vector3 offset = new Vector3(0.5f, 0f, 0f);
     private LineRenderer _line;
     public static event Action onShootBall;
+   
     private bool _lineActive = false;
 
     [SerializeField] private GameObject prefab;
@@ -21,6 +23,7 @@ public class shootball : MonoBehaviour
     
     private float _launchForce = 0f;
     private bool _shotEnabled = true;
+    public TextMeshProUGUI Scoretext;
 
     private void Start()
     {
@@ -43,36 +46,42 @@ public class shootball : MonoBehaviour
     
     private void HandleShot()
     {
-        
-        if (Input.GetMouseButtonDown(0))
+        if (scoreManager.Instance.score > 9)
         {
-            _pressTimer = 0;
-            _lineActive = true;
-        }
-        
-        if (Input.GetMouseButtonUp(0))
-        {
-            _launchForce = _pressTimer * forceBuild;
-            GameObject ball = Instantiate(prefab, transform.parent);
-            ball.transform.rotation = transform.rotation;
-            ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * _launchForce, ForceMode2D.Impulse);
-            ball.transform.position = transform.position;
-            
 
-            //Invoke de action event bij het schieten
-            onShootBall?.Invoke();
-            _lineActive = false;
-            _line.SetPosition(1, Vector3.zero + offset);
-        }
-      
-        if (_pressTimer < maximumHoldTime)
-        {
-          
-            _pressTimer += Time.deltaTime;
-        }
-        if (_lineActive)
-        {
-            _line.SetPosition(1, Vector3.right * _pressTimer * lineSpeed);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                _pressTimer = 0;
+                _lineActive = true;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                scoreManager.Instance.score -= 10;
+
+                _launchForce = _pressTimer * forceBuild;
+                GameObject ball = Instantiate(prefab, transform.parent);
+                ball.transform.rotation = transform.rotation;
+                ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * _launchForce, ForceMode2D.Impulse);
+                ball.transform.position = transform.position;
+
+
+                //Invoke de action event bij het schieten
+                onShootBall?.Invoke();
+                _lineActive = false;
+                _line.SetPosition(1, Vector3.zero + offset);
+            }
+
+            if (_pressTimer < maximumHoldTime)
+            {
+
+                _pressTimer += Time.deltaTime;
+            }
+            if (_lineActive)
+            {
+                _line.SetPosition(1, Vector3.right * _pressTimer * lineSpeed);
+            }
         }
     }
     private void DisableShot()

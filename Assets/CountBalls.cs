@@ -8,10 +8,16 @@ public class CountBalls : MonoBehaviour
     public static event Action onBallshot;
     
 
-  [SerializeField] private int ballsLeft = 5;
+  [SerializeField] private int ballsLeft = 1 ;
+    
     private void Start()
     {
         shootball.onShootBall += CountOnShot;
+        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
+        if(scoreManager.Instance.score == 0)
+        {
+            
+        }
         
     }
 
@@ -24,7 +30,7 @@ public class CountBalls : MonoBehaviour
     private void CountOnShot()
     {
 
-
+       
         //Check of je nog genoeg ballen over hebt
         if (ballsLeft >= 2)
         {
@@ -32,12 +38,14 @@ public class CountBalls : MonoBehaviour
             ballsLeft--;
             onBallshot.Invoke();
         }
-        else
-        {
-            //verstuur event als ze op zijn
-            ballsLeft--;
-            onBallDepleted?.Invoke();
-        }
+        /*
+       else
+       {
+           //verstuur event als ze op zijn
+           ballsLeft--;
+           onBallDepleted?.Invoke();
+       }
+       */
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
