@@ -18,7 +18,7 @@ public class TestText : MonoBehaviour
     public int c = 0;
 
     string t = "i need Some money";
-    string[] txt324 = new string[] {"you grab your phone to call a friend","ring ring ring ring","Yo","Friend: Yo we have not spoken in a while","friend: How have you been sins ...then", "I been fine i need some money","Friend: AGAIN !!!",
+    string[] txt324 = new string[] {"you grab your phone to call a friend","ring ring ring ring","Yo","Friend: Yo we have not spoken in a while","friend: How have you been sins ...then", "I have been fine i need some money","Friend: AGAIN !!!",
         "Friend: you have not paid me back yet from last week!","Friend: fine fine i give you a 50 but this is the laast time i lend you money","Friend: forever! you asshole how didnt show up to your friends fun..","you hang up the phone","one ball cost 10",""
         };
     void Start()
@@ -39,7 +39,7 @@ public class TestText : MonoBehaviour
             
             
            
-            if (c == 11)
+            if (c == 12)
             {
                 i = 0;
                 t = txt324[c];

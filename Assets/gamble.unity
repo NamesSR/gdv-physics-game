@@ -1063,9 +1063,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1373066440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 216.2, y: 147.4}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 216.2, y: -98}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735588725
@@ -1205,11 +1205,11 @@ PrefabInstance:
       objectReference: {fileID: -876546973899608171, guid: f63d574838ccfb44f84acc05fed0af48, type: 3}
     - target: {fileID: 1880193367215317429, guid: 0e19cc938313df54497fff766a815513, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0783896
+      value: 4.95
       objectReference: {fileID: 0}
     - target: {fileID: 1880193367215317429, guid: 0e19cc938313df54497fff766a815513, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.83126
+      value: -3.65
       objectReference: {fileID: 0}
     - target: {fileID: 1880193367215317429, guid: 0e19cc938313df54497fff766a815513, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1306,9 +1306,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1373066440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -274, y: 16}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -363, y: -110}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &759630609
@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759630607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92e2194522d974b49b53cf345930b946, type: 3}
   m_Name: 
@@ -1760,7 +1760,7 @@ RectTransform:
   m_GameObject: {fileID: 957256491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.6505783, y: 0.7711515, z: 1}
+  m_LocalScale: {x: 2.6505783, y: 0.92538184, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1373066440}
@@ -2053,6 +2053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5a0dc671c5b5e4292a87e3f142b543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  ballcounttext: {fileID: 759630610}
   ballsLeft: 1
 --- !u!61 &1156450472
 BoxCollider2D:
@@ -3316,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1880193367215317429, guid: 0e19cc938313df54497fff766a815513, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.687121
+      value: 12.35
       objectReference: {fileID: 0}
     - target: {fileID: 1880193367215317429, guid: 0e19cc938313df54497fff766a815513, type: 3}
       propertyPath: m_LocalPosition.y

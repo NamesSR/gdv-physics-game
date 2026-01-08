@@ -74,3 +74,17 @@
 ### [hide](Assets/hide.cs)
 ### [countball](Assets/CountBalls.cs)
 ### [ballCountUI](Assets/CountBallsUI.cs)
+
+# 6.1
+## ![gif](image/6.1.gif)
+### [shoot code](Assets/shootball.cs)
+### [rotation code](Assets/aim.cs)
+### [scoremager](Assets/scoreManager.cs)
+### [colliding](Assets/colliding.cs)
+### [text](Assets/TestText.cs)
+### [scoretext](Assets/scoretext.cs)
+### [scoremager](Assets/comboSytem.cs)
+### [hide](Assets/hide.cs)
+### [countball](Assets/CountBalls.cs)
+### [ballCountUI](Assets/CountBallsUI.cs)
+### when you hit a target you dont get point imidetly you get a multiplyer and point kinda when you have hit multiple target and the ball gets of screen you get all the point that all those targets where has multiplyed by th multiplyer you have also shooting a ball cost money

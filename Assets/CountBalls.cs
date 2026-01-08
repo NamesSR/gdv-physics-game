@@ -1,41 +1,54 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.SocialPlatforms.Impl;
 public class CountBalls : MonoBehaviour
 {
     public static event Action onBallLost;
     public static event Action onBallDepleted;
     public static event Action onBallshot;
-    
+    public TextMeshProUGUI ballcounttext;
 
-  [SerializeField] private int ballsLeft = 1 ;
+
+    [SerializeField] private int ballsLeft = 1 ;
     
     private void Start()
     {
+       
+        
         shootball.onShootBall += CountOnShot;
         ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
-        if(scoreManager.Instance.score == 0)
-        {
-            
-        }
-        
+        ballcounttext.text = ($"BallCount: {ballsLeft}");
+
+
+
+    }
+    private void ballsleftfix()
+    {
+        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
+        ballcounttext.text = ($"BallCount: {ballsLeft}");
     }
 
     private void OnDisable()
     {
         //verwijder ook weer alle events
+       
         shootball.onShootBall -= CountOnShot;
 
     }
     private void CountOnShot()
     {
+        
 
-       
         //Check of je nog genoeg ballen over hebt
         if (ballsLeft >= 2)
         {
             //pas je ballen reserve aan
             ballsLeft--;
+            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
+            
+            ballcounttext.text = ($"BallCount: {ballsLeft}");
             onBallshot.Invoke();
         }
         /*
@@ -57,6 +70,9 @@ public class CountBalls : MonoBehaviour
             onBallLost?.Invoke();
             //vernietig de bal
             Destroy(collision.gameObject);
+
+            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
+            ballcounttext.text = ($"BallCount: {ballsLeft}");
         }
     }
 }
