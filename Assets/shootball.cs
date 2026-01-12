@@ -14,6 +14,7 @@ public class shootball : MonoBehaviour
     private bool _lineActive = false;
     public double points = 10;
     float time = 2;
+   public int canshoot2 = 0;
 
     [SerializeField] private GameObject prefab;
     
@@ -28,11 +29,13 @@ public class shootball : MonoBehaviour
     private bool _shotEnabled = true;
     public TextMeshProUGUI pointstext;
     public static event Action oncostchagne;
-    double valuer = 10;
+    public double valuer = 10;
+    public int score234 = 0;
 
     private void Start()
     {
-        
+        score234 = Convert.ToInt32(Math.Floor(scoreManager.Instance.score));
+
         CountBalls.onBallDepleted += DisableShot;
         _line = GetComponent<LineRenderer>();
 
@@ -48,14 +51,14 @@ public class shootball : MonoBehaviour
     private void Update()
     {
         if (_shotEnabled)HandleShot();
-        if (Input.GetKeyDown(KeyCode.RightArrow) && points < scoreManager.Instance.score -5 )
+        if (Input.GetKeyDown(KeyCode.RightArrow) && valuer != Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10 * 10)
         {
             valuer += 10;
             StartCoroutine(showtext());
             oncostchagne?.Invoke();
-
+            
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow)&& points != 10)
+        if (Input.GetKeyDown(KeyCode.LeftArrow)&& valuer != 10)
         {
             valuer -= 10;
             StartCoroutine(showtext());
@@ -65,42 +68,46 @@ public class shootball : MonoBehaviour
     
     private void HandleShot()
     {
-        if (scoreManager.Instance.score > points - 1)
+        if (canshoot2 == 0)
         {
-
-
-            if (Input.GetMouseButtonDown(0))
+            if (scoreManager.Instance.score > valuer - 1)
             {
-                _pressTimer = 0;
-                _lineActive = true;
-            }
+                
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                points = valuer;
-                scoreManager.Instance.score -= points;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    _pressTimer = 0;
+                    _lineActive = true;
+                }
 
-                _launchForce = _pressTimer * forceBuild;
-                GameObject ball = Instantiate(prefab, transform.parent);
-                ball.transform.rotation = transform.rotation;
-                ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * _launchForce, ForceMode2D.Impulse);
-                ball.transform.position = transform.position;
+                if (Input.GetMouseButtonUp(0))
+                {
+                    points = valuer;
+                    scoreManager.Instance.score -= points;
+
+                    _launchForce = _pressTimer * forceBuild;
+                    GameObject ball = Instantiate(prefab, transform.parent);
+                    ball.transform.rotation = transform.rotation;
+                    ball.GetComponent<Rigidbody2D>().AddForce(ball.transform.right * _launchForce, ForceMode2D.Impulse);
+                    ball.transform.position = transform.position;
 
 
-                //Invoke de action event bij het schieten
-                onShootBall?.Invoke();
-                _lineActive = false;
-                _line.SetPosition(1, Vector3.zero + offset);
-            }
+                    //Invoke de action event bij het schieten
+                    onShootBall?.Invoke();
+                    _lineActive = false;
+                    _line.SetPosition(1, Vector3.zero + offset);
+                    canshoot2 = 1;
+                }
 
-            if (_pressTimer < maximumHoldTime)
-            {
+                if (_pressTimer < maximumHoldTime)
+                {
 
-                _pressTimer += Time.deltaTime;
-            }
-            if (_lineActive)
-            {
-                _line.SetPosition(1, Vector3.right * _pressTimer * lineSpeed);
+                    _pressTimer += Time.deltaTime;
+                }
+                if (_lineActive)
+                {
+                    _line.SetPosition(1, Vector3.right * _pressTimer * lineSpeed);
+                }
             }
         }
     }
@@ -110,8 +117,9 @@ public class shootball : MonoBehaviour
     }
     IEnumerator showtext()
     {
-        pointstext.text = points.ToString();
+        pointstext.text = valuer.ToString();
         yield return new WaitForSeconds(time);
         pointstext.text = "";
     }
+    
 }

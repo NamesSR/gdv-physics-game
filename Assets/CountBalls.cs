@@ -20,7 +20,7 @@ public class CountBalls : MonoBehaviour
 
         shootball.oncostchagne += cost;
         shootball.onShootBall += CountOnShot;
-        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
+        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.valuer);
         ballcounttext.text = ($"BallCount: {ballsLeft}");
 
 
@@ -35,7 +35,7 @@ public class CountBalls : MonoBehaviour
 
     private void cost()
     {
-        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
+        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.valuer);
         ballcounttext.text = ($"BallCount: {ballsLeft}");
     }
       
@@ -58,7 +58,7 @@ public class CountBalls : MonoBehaviour
         {
             //pas je ballen reserve aan
             ballsLeft--;
-            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
+            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.valuer);
             
             ballcounttext.text = ($"BallCount: {ballsLeft}");
             onBallshot.Invoke();
@@ -83,9 +83,11 @@ public class CountBalls : MonoBehaviour
             //vernietig de bal
             Destroy(collision.gameObject);
 
-            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
+            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.valuer);
+            shootball.score234 = Convert.ToInt32(Math.Floor(scoreManager.Instance.score));
             ballcounttext.text = ($"BallCount: {ballsLeft}");
-            if(scoreManager.Instance.score < 10)
+            shootball.canshoot2 = 0;
+            if (scoreManager.Instance.score < 10)
             {
                 gameover.text = "Game Over";
             }

@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 584579643}
   m_Layer: 0
   m_Name: GameObject (5)
-  m_TagString: Untagged
+  m_TagString: deathzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2074,7 +2074,7 @@ GameObject:
   - component: {fileID: 1054500220}
   m_Layer: 0
   m_Name: GameObject (6)
-  m_TagString: Untagged
+  m_TagString: deathzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2502,7 +2502,7 @@ GameObject:
   - component: {fileID: 1156450471}
   m_Layer: 0
   m_Name: GameObject (3)
-  m_TagString: Untagged
+  m_TagString: deathzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2846,10 +2846,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::shootball
   lineSpeed: 10
   points: 10
+  canshoot2: 0
   prefab: {fileID: 2587539675326463590, guid: 3ca15e4b10e0dc14fb7a0079a1264f6e, type: 3}
   forceBuild: 20
   maximumHoldTime: 5
   pointstext: {fileID: 1147383925}
+  valuer: 10
+  score234: 0
 --- !u!120 &1261133389
 LineRenderer:
   serializedVersion: 2
@@ -3090,7 +3093,7 @@ GameObject:
   - component: {fileID: 1373100668}
   m_Layer: 0
   m_Name: GameObject (4)
-  m_TagString: Untagged
+  m_TagString: deathzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
