@@ -56,7 +56,7 @@ public class comboSytem : MonoBehaviour
 
     }
     private void score() {
-        if (multipayer2 == 1) { 
+        if (multipayer2 != 1) { 
         scoreManager.Instance.AddScore(shootball.points * multipayer2);
     }
         string scoretxt = ($"Money: {scoreManager.Instance.score} ");
