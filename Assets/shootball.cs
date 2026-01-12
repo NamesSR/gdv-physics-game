@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 
 using UnityEngine;
@@ -11,6 +12,8 @@ public class shootball : MonoBehaviour
     public static event Action onShootBall;
    
     private bool _lineActive = false;
+    public double points = 10;
+    float time = 2;
 
     [SerializeField] private GameObject prefab;
     
@@ -23,10 +26,11 @@ public class shootball : MonoBehaviour
     
     private float _launchForce = 0f;
     private bool _shotEnabled = true;
-    public TextMeshProUGUI Scoretext;
+    public TextMeshProUGUI pointstext;
 
     private void Start()
     {
+        
         CountBalls.onBallDepleted += DisableShot;
         _line = GetComponent<LineRenderer>();
 
@@ -42,6 +46,17 @@ public class shootball : MonoBehaviour
     private void Update()
     {
         if (_shotEnabled)HandleShot();
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Math.Floor(scoreManager.Instance.score) != points)
+        {
+            points += 10;
+            StartCoroutine(showtext());
+
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow)&& points != 10)
+        {
+            points -= 10;
+            StartCoroutine(showtext());
+        }
     }
     
     private void HandleShot()
@@ -58,7 +73,7 @@ public class shootball : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                scoreManager.Instance.score -= 10;
+                scoreManager.Instance.score -= points;
 
                 _launchForce = _pressTimer * forceBuild;
                 GameObject ball = Instantiate(prefab, transform.parent);
@@ -87,5 +102,11 @@ public class shootball : MonoBehaviour
     private void DisableShot()
     {
         _shotEnabled = false;
+    }
+    IEnumerator showtext()
+    {
+        pointstext.text = points.ToString();
+        yield return new WaitForSeconds(time);
+        pointstext.text = "";
     }
 }

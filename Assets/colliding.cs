@@ -11,17 +11,18 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 public class colliding : MonoBehaviour
 {
     public int MaxHits = 5;
-    public double value = 5;
+    
     public double multiplyer;
     public float shrink = 0.1f; 
     public float shrinkplus = 0.1f;
     private ParticleSystem ps;
     private int hitt = 0;
+    public int collided2 = 0;
     private AudioSource audioSource;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public static event Action<string, double, double> onBumperHit;
+    public static event Action<string, double> onBumperHit;
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -38,7 +39,7 @@ public class colliding : MonoBehaviour
     {
         if (hitt == 0)
         {
-            if (!this.gameObject.CompareTag("combo"))
+            /*if (!this.gameObject.CompareTag("combo"))
             {
                 MaxHits--;
                 Debug.Log("hit! " + MaxHits);
@@ -53,11 +54,14 @@ public class colliding : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }
+            */
             if (collision.gameObject.CompareTag("ball"))
             {
-                onBumperHit?.Invoke(gameObject.tag, value, multiplyer);
+                onBumperHit?.Invoke(gameObject.tag, multiplyer);
                
                 hitt = 1;
+                collided2 = 1;
+
             }
         }
         if (collision.gameObject.CompareTag("ball"))

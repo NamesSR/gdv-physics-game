@@ -9,6 +9,8 @@ public class CountBalls : MonoBehaviour
     public static event Action onBallDepleted;
     public static event Action onBallshot;
     public TextMeshProUGUI ballcounttext;
+    public TextMeshProUGUI gameover;
+    shootball shootball;
 
 
     [SerializeField] private int ballsLeft = 1 ;
@@ -29,6 +31,7 @@ public class CountBalls : MonoBehaviour
         ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
         ballcounttext.text = ($"BallCount: {ballsLeft}");
     }
+
 
     private void OnDisable()
     {
@@ -73,6 +76,10 @@ public class CountBalls : MonoBehaviour
 
             ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
             ballcounttext.text = ($"BallCount: {ballsLeft}");
+            if(scoreManager.Instance.score < 10)
+            {
+                gameover.text = "Game Over";
+            }
         }
     }
 }
