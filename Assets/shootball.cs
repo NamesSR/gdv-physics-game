@@ -27,6 +27,8 @@ public class shootball : MonoBehaviour
     private float _launchForce = 0f;
     private bool _shotEnabled = true;
     public TextMeshProUGUI pointstext;
+    public static event Action oncostchagne;
+    double valuer = 10;
 
     private void Start()
     {
@@ -46,22 +48,24 @@ public class shootball : MonoBehaviour
     private void Update()
     {
         if (_shotEnabled)HandleShot();
-        if (Input.GetKeyDown(KeyCode.RightArrow) && Math.Floor(scoreManager.Instance.score) != points)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && points < scoreManager.Instance.score -5 )
         {
-            points += 10;
+            valuer += 10;
             StartCoroutine(showtext());
+            oncostchagne?.Invoke();
 
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow)&& points != 10)
         {
-            points -= 10;
+            valuer -= 10;
             StartCoroutine(showtext());
+            oncostchagne?.Invoke();
         }
     }
     
     private void HandleShot()
     {
-        if (scoreManager.Instance.score > 9)
+        if (scoreManager.Instance.score > points - 1)
         {
 
 
@@ -73,6 +77,7 @@ public class shootball : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
+                points = valuer;
                 scoreManager.Instance.score -= points;
 
                 _launchForce = _pressTimer * forceBuild;

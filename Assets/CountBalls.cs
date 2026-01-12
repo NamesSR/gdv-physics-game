@@ -10,17 +10,17 @@ public class CountBalls : MonoBehaviour
     public static event Action onBallshot;
     public TextMeshProUGUI ballcounttext;
     public TextMeshProUGUI gameover;
-    shootball shootball;
+   public shootball shootball;
 
 
     [SerializeField] private int ballsLeft = 1 ;
     
     private void Start()
     {
-       
-        
+
+        shootball.oncostchagne += cost;
         shootball.onShootBall += CountOnShot;
-        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
+        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
         ballcounttext.text = ($"BallCount: {ballsLeft}");
 
 
@@ -33,11 +33,20 @@ public class CountBalls : MonoBehaviour
     }
 
 
+    private void cost()
+    {
+        ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
+        ballcounttext.text = ($"BallCount: {ballsLeft}");
+    }
+      
+
+
     private void OnDisable()
     {
         //verwijder ook weer alle events
        
         shootball.onShootBall -= CountOnShot;
+        shootball.oncostchagne -= cost;
 
     }
     private void CountOnShot()
@@ -49,7 +58,7 @@ public class CountBalls : MonoBehaviour
         {
             //pas je ballen reserve aan
             ballsLeft--;
-            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
+            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
             
             ballcounttext.text = ($"BallCount: {ballsLeft}");
             onBallshot.Invoke();
@@ -74,7 +83,7 @@ public class CountBalls : MonoBehaviour
             //vernietig de bal
             Destroy(collision.gameObject);
 
-            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / 10;
+            ballsLeft = Convert.ToInt32(Math.Floor(scoreManager.Instance.score)) / Convert.ToInt32(shootball.points);
             ballcounttext.text = ($"BallCount: {ballsLeft}");
             if(scoreManager.Instance.score < 10)
             {
